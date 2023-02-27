@@ -1,0 +1,10 @@
+.add-task{
+    border: 2px solid royalblue;
+    border-radius: 10px;
+    padding: 10px;
+    display:inline-block;
+
+}
+.add-task input{
+    margin: 10px;
+}

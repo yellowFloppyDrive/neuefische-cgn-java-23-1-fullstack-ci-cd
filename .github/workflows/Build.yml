@@ -1,0 +1,25 @@
+name: Test and Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B package --file backend/pom.xml
